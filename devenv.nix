@@ -9,10 +9,10 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [pkgs.git pkgs.opentofu pkgs.sops];
+  packages = [pkgs.git pkgs.opentofu pkgs.sops pkgs.delve];
 
   # https://devenv.sh/languages/
-  # languages.rust.enable = true;
+  languages.go.enable = true;
 
   # https://devenv.sh/processes/
   # processes.cargo-watch.exec = "cargo-watch";

@@ -25,20 +25,20 @@ variable "description" {
   default     = null
 }
 
-variable "user" {
+variable "unifi_user" {
   type = string
-  description = "The pfsense username"
+  description = "The unifi username"
   sensitive   = true
 }
 
-variable "url" {
+variable "unifi_api_url" {
   type = string
-  description = "The pfsense url"
+  description = "The unifi url"
   
 }
 
-variable "password" {
+variable "unifi_password" {
   type = string
-  description = "the pfsense password"
+  description = "the unifi password"
   sensitive   = true
 }

@@ -14,3 +14,21 @@ variable "pfsense_password" {
   type        = string
   sensitive   = true
 }
+
+
+variable "unifi_api_url" {
+  description = "unifi url address"
+  type        = string
+}
+
+variable "unifi_user" {
+  description = "unifi username"
+  type        = string
+  sensitive   = true
+}
+
+variable "unifi_password" {
+  description = "unifi password"
+  type        = string
+  sensitive   = true
+}

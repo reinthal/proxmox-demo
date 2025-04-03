@@ -1,5 +1,5 @@
-resource "pfsense_interface_vlan" "this" {
-  tag = var.vlan_tag
-  if = var.parent_interface
-  description = var.description
+resource "unifi_network" "gbg_win7" {
+  name    = "gbg-win7"
+  purpose = "proxmox-demo"
+  vlan_id      = var.vlan_tag
 }
