@@ -1,9 +1,9 @@
-variable "pfsense_host" {
-  description = "pfSense host address"
+variable "pfsense_url" {
+  description = "pfSense url address"
   type        = string
 }
 
-variable "pfsense_username" {
+variable "pfsense_user" {
   description = "pfSense username"
   type        = string
   sensitive   = true
