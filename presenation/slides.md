@@ -1,6 +1,5 @@
 ---
 theme: cybertopia
-header: <img src="img/knowit-logo.svg" width=75>
 footer: 'Alexander Reinthal, FFT 2025-04-09'
 class: invert
 backgroundImage: ./img/background.png
@@ -20,10 +19,10 @@ Using Proxmox Hypervisor
 
 Alexander Reinthal
 Data Platform Engineer
-Loves Tomato Soup
-Loves Birds
+**Loves** Tomato Soup
+**Loves** Birds
 
-Recently Obsessed with 
+**Recently Obsessed with **
 Fast Chess & Counter-Strike 2
 
 ---
@@ -46,46 +45,54 @@ Fast Chess & Counter-Strike 2
 
 Storage `<->` network `<->` Machines
 
-- **Advantage**: Backups, Disaster Recovery, Easily swap drives with zero downtime.
+---
+
+### The SAN era (1990s-2000s)
+- **Advantage**: Backups, Disaster Recovery, Easily swap drives with zero downtime
 - **Disadvantage**: Very Complex, difficult to scale, significant investment
 
 ---
 ### The Converged Era (2000s-2010s)
 
 - Pre-engineered bundles of compute, networking and storage
-- Advantage: Better scalability of the SAN design.
+- **Advantage**: Better scalability of the SAN design
 
 
 ---
-### The Hyperconverged Era (2010s-Today)
+### The Hyperconverged Era (2010s-)
 
-With the rise of virtualization, data center design became "hyperconverged".
-
-- Software Defined Storage, Network & Compute.
-- Lets practitioners focus less on hardware
+With the rise of virtualization, data center design became "hyperconverged"
 
 ---
-# What Enabled Hyperconvergence?
+### The Hyperconverged Era (2010s-)
 
-- Improved virtualization technology
-- Infrastructure as Code technologies
-- Distributed file systems and object storage
+- Software Defined Storage, Network & Compute
+- Enabled practitioners to focus less on hardware
+
+---
+
+end of background
+
+---
+
+![](./img/knowit-logo.svg)
+![bg](./img/background.png)
 
 ---
 
 ## What Computer Resources do we typically need?
 
-- **Execution Environment**: Run the code. VMs, Containers, Lambdas. 
+- **Execution Environment**: VMs, Containers, Lambdas
 - **Networking**: Computers need to talk to other Computers
-- **Storage**: Object Storage, Volumes, Network shares, Sharepoint?
+- **Storage**: Object Storage, Volumes, Network Shares
 
 ---
 ## What are other nice-to-haves?
 
 
 - Backups
-- Identities, who is running the code?
-- Applications: Databases, Caches, lambdas, pubsub etc.
+- Identities
+- Applications: Databases, Caches, lambdas, pubsub etc
 
 ---
 
@@ -101,14 +108,15 @@ UI `<->` API `<->` Resource Backend
 ---
 # What is Proxmox?
 
-<img src="img/proxmox.png">
+![](./img/proxmox.png)
+
 
 Hyperconverged Infrastructure 
 on commodity hardware
 
 ---
 
-# What does proxmox provide?
+# What is proxmox?
 
 - Networking
 - Storage
@@ -116,7 +124,7 @@ on commodity hardware
 - Linux Containers (LXC)
 
 ---
-<img src="https://i.imgflip.com/9pnocy.jpg" title="made by alexander Reinthal" class="center-image"/>
+![](https://i.imgflip.com/9pnocy.jpg)
 
 ---
 
@@ -129,7 +137,7 @@ on commodity hardware
 **Hardware**: 4x Gigabit LAN, Quad Core CPU
 **Operating System**: PfSense
 
-<img src="https://teklager.se/media/filer_public_thumbnails/filer_public/6f/62/6f6257bb-9bb0-44f7-9407-3c1c7f1c96d1/2_2_apu4_pxl_20230106_112033200_2apu4_.jpg__900x900_q85_crop_subsampling-2.jpg" title="made by alexander Reinthal" width=300 height=300/>
+![bg left:33%](https://teklager.se/media/filer_public_thumbnails/filer_public/6f/62/6f6257bb-9bb0-44f7-9407-3c1c7f1c96d1/2_2_apu4_pxl_20230106_112033200_2apu4_.jpg__900x900_q85_crop_subsampling-2.jpg)
 
 
 ---
@@ -157,11 +165,12 @@ on commodity hardware
 ---
 # Demo
 
-Let's test our hyperconverged  "cloud compute" platform!
+Let's test our hyperconverged  "cloud compute" platform
 
 - Networking ✅
 - Storage ✅
 - Compute ✅
+
 ---
 
 <video src="./video/proxmox-ui.mkv" controls width="100%"></video>
@@ -181,9 +190,9 @@ Let's test our hyperconverged  "cloud compute" platform!
 ---
 # Limitations of DIY-cloud
 
-- Proxmox supports only up to 1000s nodes per cluster.
-- Nodes need < 5ms ping time, multi-site failover not easy.
-- No official tofu/terraform provider.
+- Proxmox supports only up to 1000s nodes per cluster
+- Nodes need < 5ms ping time, multi-site failover not easy
+- No official tofu/terraform provider
 
 ---
 
