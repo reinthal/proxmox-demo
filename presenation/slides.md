@@ -1,42 +1,30 @@
 ---
 theme: cybertopia
-_class: 
- - lead
+header: <img src="img/knowit-logo.svg" width=75>
+footer: 'Alexander Reinthal, FFT 2025-04-09'
+class: invert
+backgroundImage: ./img/background.png
 paginate: true
-backgroundColor: #FFFDE6
-backgroundImage: https://i.imgflip.com/9pnocy.jpg
 marp: true
-style: |
-  .left-image {
-    float: left;
-    margin-right: 20px;
-    width: 300px;
-  }
-  .right-image {
-    float: right;
-    margin-left: 20px;
-    width: 300px;
-  }
-  .center-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
 ---
 
-
+![bg](https://i.imgur.com/jBB1vtZ.jpeg)
 # **Build Your Own Cloud**
 
 Using Proxmox Hypervisor
 
 ---
-# `$whoami`
+# 
 
-**Name**: Alexander Reinthal
-**Role**: Data Platform Engineer
-**Favorite Soup**: Tomato
-**Favorite Animal**: Bird
-**Recent Obsessions**: Fast Chess, Counter-Strike 2
+`$ whoami`
+
+Alexander Reinthal
+Data Platform Engineer
+Loves Tomato Soup
+Loves Birds
+
+Recently Obsessed with 
+Fast Chess & Counter-Strike 2
 
 ---
 
@@ -44,9 +32,7 @@ Using Proxmox Hypervisor
 
 "The cloud is someone else's computer"
 
-![](https://e3.365dm.com/21/01/768x432/skynews-emotet-computer-cyber_5252028.png)
-
-Star wars meme, normal distribution
+![bg](https://e3.365dm.com/21/01/768x432/skynews-emotet-computer-cyber_5252028.png)
 
 ---
 ## Datacenter designs
@@ -58,10 +44,10 @@ Star wars meme, normal distribution
 
 - SAN: Storage Area Network
 
-Storage <-> network <-> Machines
+Storage `<->` network `<->` Machines
 
-- Advantage: Backups, Disaster Recovery, Easily swap drives with zero downtime.
-- Disadvantage: Very Complex, difficult to scale, significant investment
+- **Advantage**: Backups, Disaster Recovery, Easily swap drives with zero downtime.
+- **Disadvantage**: Very Complex, difficult to scale, significant investment
 
 ---
 ### The Converged Era (2000s-2010s)
@@ -81,9 +67,9 @@ With the rise of virtualization, data center design became "hyperconverged".
 ---
 # What Enabled Hyperconvergence?
 
-- Improved virtualization technology, few CPU percent overheard
-- Infrastructure as Code technologies, (Ansible, OpenTofu, Terraform, Pulumi)
-- Distributed file systems and object storage (Ceph, GlusterFS)
+- Improved virtualization technology
+- Infrastructure as Code technologies
+- Distributed file systems and object storage
 
 ---
 
@@ -99,12 +85,7 @@ With the rise of virtualization, data center design became "hyperconverged".
 
 - Backups
 - Identities, who is running the code?
-- Applications, Databases, Caches. They sit in top of the other primitives seen
-  above.
-
----
-
-
+- Applications: Databases, Caches, lambdas, pubsub etc.
 
 ---
 
@@ -115,14 +96,19 @@ UI `<->` API `<->` Resource Backend
 - Networking
 - Compute
 - Storage
-- Backups, Geo-redundancy, Serverless, etc.
+- Backups, Geo-redundancy, Serverless, Applications etc.
 
 ---
 # What is Proxmox?
 
-<img src="img/proxmox.png" class="right-image">
+<img src="img/proxmox.png">
+
 Hyperconverged Infrastructure 
 on commodity hardware
+
+---
+
+# What does proxmox provide?
 
 - Networking
 - Storage
@@ -136,16 +122,20 @@ on commodity hardware
 
 # Networking
 
+
+---
 ## Routing
 
 **Hardware**: 4x Gigabit LAN, Quad Core CPU
 **Operating System**: PfSense
 
-<img src="https://teklager.se/media/filer_public_thumbnails/filer_public/6f/62/6f6257bb-9bb0-44f7-9407-3c1c7f1c96d1/2_2_apu4_pxl_20230106_112033200_2apu4_.jpg__900x900_q85_crop_subsampling-2.jpg" title="made by alexander Reinthal" class="right-image"/>
+<img src="https://teklager.se/media/filer_public_thumbnails/filer_public/6f/62/6f6257bb-9bb0-44f7-9407-3c1c7f1c96d1/2_2_apu4_pxl_20230106_112033200_2apu4_.jpg__900x900_q85_crop_subsampling-2.jpg" title="made by alexander Reinthal" width=300 height=300/>
 
+
+---
 ## Switches
 
-**Hardware**: VLAN compatible switches, 
+**Hardware**: VLAN compatible switches 
 **Price**: Free <3 Invativa
 
 
@@ -153,9 +143,12 @@ on commodity hardware
 
 # Physical Servers
 
-- Year 2019, `pve`, i3 4-cores 9th gen, 64 gig RAM
-- Year 2024, `pvd`, i7 4-cores 7th gen, 32 gig RAM 
-- Year 2024, `pvc`, i7 16-cores 14th gen, 96 gig RAM
+- `pve`,i3 4-cores 9th gen, 64GB RAM
+- `pvd`,i7 4-cores 7th gen, 32GB RAM 
+- `pvc`,i7 16-cores 14th gen, 96GB RAM
+
+
+---
 
 # Storage
 
