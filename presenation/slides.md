@@ -31,7 +31,7 @@ Fundamentals of building a homelab with enterprise features using Proxmox
  Security & Monitoring, a lot of other details.
 
 ---
-# 
+#
 
 `$ whoami`
 
@@ -52,59 +52,36 @@ Fast Chess & Counter-Strike 2
 ![bg](https://e3.365dm.com/21/01/768x432/skynews-emotet-computer-cyber_5252028.png)
 
 ---
-## Datacenter design History 101
 
+# What's the goal of cloud technology?
 
----
-
-| Period | Design Pattern | TLDR |
-|--------|---------------|------|
-| 1990s-2000s | SAN Era | Separated storage from compute |
-| 2000s-2010s | Converged Era | Bundled compute, networking, and storage into task specific appliances. |
-| 2010s-Present | Hyperconverged Era | Generalized Appliances. |
-
----
-
-# What's the goal of this technology?
-
-- Increase resource utilization
+- Scale computer infrastructure, and maximize resource utilization
 - Enable developers
 - Run software
 
 ---
 
-## Basic Building blocks
+Basic Building Blocks:
 
 - **Compute**: VMs, Containers
-- **Networking**: NICS, routing, ips, firewalls etc.
+- **Networking**: NICs, routing, IPs, firewalls etc.
 - **Storage**: Object Storage, Volumes, Network Shares
 - **Orchestration**: Container Orchestration, High-Availability Failover
 
----
-## Services Provided on top
+Services Provided on Top:
 
 - Backups
 - Identities
-- **Applications**: Databases, Caches, lambdas, pubsub, PaaS etc
+- **Applications**: Databases, Caches, lambdas, pubsub, PaaS etc.
 
 ---
 
-# What is the Public Cloud?
-
-UI `<->` API `<->` Resource Backend
-
-- Networking
-- Compute
-- Storage
-- Backups, Geo-redundancy, Serverless, Applications etc.
-
----
 # What is Proxmox?
 
 ![](./img/proxmox.png)
 
 
-Hyperconverged Infrastructure 
+Hyperconverged Infrastructure
 on commodity hardware
 
 ---
@@ -123,32 +100,26 @@ on commodity hardware
 ![](https://i.imgflip.com/9pnocy.jpg)
 
 ---
-
-- Networking
-- Storage
-- Compute
-
----
 ## Networking
 
 **Router Hardware**: 4x Gigabit LAN, Quad Core CPU
-**Router Operating System**: PfSense
-**Switches**: VLAN compatible switches 
+**Router Operating System**: pfSense
+**Switches**: VLAN compatible switches
 
 
 ---
 
 # Storage
 
-- Mirrored zfs ssd-drives
+- Mirrored ZFS SSD-drives
 
 ---
 
 # Compute
 
-- `pve`,i3 4-cores 9th gen, 64GB RAM
-- `pvd`,i7 4-cores 7th gen, 32GB RAM 
-- `pvc`,i7 16-cores 14th gen, 96GB RAM
+- `pve`, i3 4-cores 9th gen, 64GB RAM
+- `pvd`, i7 4-cores 7th gen, 32GB RAM
+- `pvc`, i7 16-cores 14th gen, 96GB RAM
 
 ---
 
@@ -161,7 +132,7 @@ on commodity hardware
 ---
 # Demo
 
-Let's test our hyperconverged  "cloud compute" platform
+Let's test our hyperconverged "cloud compute" platform
 
 - Networking ✅
 - Storage ✅
@@ -181,30 +152,17 @@ Let's test our hyperconverged  "cloud compute" platform
 
 <video src="./video/live-migration.mkv" controls width="100%"></video>
 
---- 
+---
 
 <video src="./video/ransomware.mkv" controls width="100%"></video>
 
 ---
-> Price Comparison
+> Cloud Pricing Comparison
 
-
----
-# Hetzner Bare Metal
--  `AX162-R`
-- 48 cores / 96 threads @ 2.75 GHz
-- 256 GB
-- Run proxmox, add new nodes as needed
-- Slice up the bare metal host as you desire
-- **Price**: $221 per month
-
-
----
-# Azure
-- General Compute `D4s_v3`
-- 4 vCpu, 16 gig ram, 
-- **Price**: $140 per month
-
+| Provider | Instance Type | CPU | Memory | Features | Price |
+|----------|--------------|-----|--------|----------|-------|
+| **Hetzner** | `AX162-R` | 96 threads | 256 GB | Bare Metal Proxmox | **$221/month** |
+| **Azure** | `D4s_v3` | 4 vCPU | 16 GB RAM | General Compute | **$140/month** |
 
 ---
 
@@ -215,14 +173,14 @@ Let's test our hyperconverged  "cloud compute" platform
 ![](./img/cpu-comparison.svg)
 
 ---
-# Limitations of Promox
+# Limitations of Proxmox
 
 - Not unlimited scalability
 - Multi-site failover not easy
 - Hardware/Resource Management
 - No OCI-Container management
- 
---- 
+
+---
 
 # Discussion
 
@@ -238,12 +196,12 @@ Let's test our hyperconverged  "cloud compute" platform
 
 - Essential Cloud features, networking, storage and compute
 - Compared public cloud offerings with Proxmox
-- Demo of some proxmox features
-- Bare metal hosts on hetzner running proxmox provides one order of magnitude lower prices
+- Demo of some Proxmox features
+- Bare metal hosts on Hetzner running Proxmox provides one order of magnitude lower prices
 - Time vs Cost
 
 
 
 ---
 
-> the end
+> The end
