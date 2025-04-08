@@ -1,11 +1,13 @@
 ---
 theme: cybertopia
+header: <img src="img/knowit-logo.svg" width=75>
 footer: 'Alexander Reinthal, FFT 2025-04-09'
 class: invert
 backgroundImage: ./img/background.png
 paginate: true
 marp: true
 ---
+
 
 ![bg](https://i.imgur.com/jBB1vtZ.jpeg)
 # **Build Your Own Cloud**
@@ -53,7 +55,7 @@ Fast Chess & Counter-Strike 2
 
 ---
 
-# What's the goal of cloud technology?
+# The goal of cloud technology
 
 - Scale computer infrastructure, and maximize resource utilization
 - Enable developers
@@ -61,14 +63,16 @@ Fast Chess & Counter-Strike 2
 
 ---
 
-Basic Building Blocks:
+# Basic Building Blocks
 
 - **Compute**: VMs, Containers
 - **Networking**: NICs, routing, IPs, firewalls etc.
 - **Storage**: Object Storage, Volumes, Network Shares
 - **Orchestration**: Container Orchestration, High-Availability Failover
 
-Services Provided on Top:
+---
+
+# Services Provided on Top
 
 - Backups
 - Identities
@@ -96,6 +100,8 @@ on commodity hardware
 | **Containers** | ✅ | ✅   |
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 ![](https://i.imgflip.com/9pnocy.jpg)
 
@@ -159,10 +165,10 @@ Let's test our hyperconverged "cloud compute" platform
 ---
 > Cloud Pricing Comparison
 
-| Provider | Instance Type | CPU | Memory | Features | Price |
-|----------|--------------|-----|--------|----------|-------|
-| **Hetzner** | `AX162-R` | 96 threads | 256 GB | Bare Metal Proxmox | **$221/month** |
-| **Azure** | `D4s_v3` | 4 vCPU | 16 GB RAM | General Compute | **$140/month** |
+| Provider | Instance Type | CPU | Memory  | Price |
+|----------|--------------|-----|--------|-------|
+| **Hetzner** | `AX162-R` | 96 threads | 256 GB  | **$221/month** |
+| **Azure** | `D4s_v3` | 4 vCPU | 16 GB | **$140/month** |
 
 ---
 
