@@ -13,6 +13,24 @@ marp: true
 Using Proxmox Hypervisor
 
 ---
+
+> What you will learn
+
+Fundamentals of building a homelab with enterprise features using Proxmox
+
+---
+
+> Who is this talk for
+
+ Homelabbers, privacy-minded, platform engineers, cloud infra engineers, the curious
+
+---
+
+> What has been excluded
+
+ Security & Monitoring, a lot of other details.
+
+---
 # 
 
 `$ whoami`
@@ -22,77 +40,52 @@ Data Platform Engineer
 **Loves** Tomato Soup
 **Loves** Birds
 
-**Recently Obsessed with **
+Recently Obsessed with
 Fast Chess & Counter-Strike 2
 
 ---
 
 ## What is the Cloud?
 
-"The cloud is someone else's computer"
+> The cloud is someone else's computer
 
 ![bg](https://e3.365dm.com/21/01/768x432/skynews-emotet-computer-cyber_5252028.png)
 
 ---
-## Datacenter designs
+## Datacenter design History 101
 
 
 ---
 
-### The SAN era (1990s-2000s)
-
-- SAN: Storage Area Network
-
-Storage `<->` network `<->` Machines
-
----
-
-### The SAN era (1990s-2000s)
-- **Advantage**: Backups, Disaster Recovery, Easily swap drives with zero downtime
-- **Disadvantage**: Very Complex, difficult to scale, significant investment
-
----
-### The Converged Era (2000s-2010s)
-
-- Pre-engineered bundles of compute, networking and storage
-- **Advantage**: Better scalability of the SAN design
-
-
----
-### The Hyperconverged Era (2010s-)
-
-With the rise of virtualization, data center design became "hyperconverged"
-
----
-### The Hyperconverged Era (2010s-)
-
-- Software Defined Storage, Network & Compute
-- Enabled practitioners to focus less on hardware
+| Period | Design Pattern | TLDR |
+|--------|---------------|------|
+| 1990s-2000s | SAN Era | Separated storage from compute |
+| 2000s-2010s | Converged Era | Bundled compute, networking, and storage into task specific appliances. |
+| 2010s-Present | Hyperconverged Era | Generalized Appliances. |
 
 ---
 
-end of background
+# What's the goal of this technology?
+
+- Increase resource utilization
+- Enable developers
+- Run software
 
 ---
 
-![](./img/knowit-logo.svg)
-![bg](./img/background.png)
+## Basic Building blocks
 
----
-
-## What Computer Resources do we typically need?
-
-- **Execution Environment**: VMs, Containers, Lambdas
-- **Networking**: Computers need to talk to other Computers
+- **Compute**: VMs, Containers
+- **Networking**: NICS, routing, ips, firewalls etc.
 - **Storage**: Object Storage, Volumes, Network Shares
+- **Orchestration**: Container Orchestration, High-Availability Failover
 
 ---
-## What are other nice-to-haves?
-
+## Services Provided on top
 
 - Backups
 - Identities
-- Applications: Databases, Caches, lambdas, pubsub etc
+- **Applications**: Databases, Caches, lambdas, pubsub, PaaS etc
 
 ---
 
@@ -116,44 +109,31 @@ on commodity hardware
 
 ---
 
-# What is proxmox?
-
-- Networking
-- Storage
-- VMs
-- Linux Containers (LXC)
+| Feature | Public Cloud (AWS/Azure/GCP) | Proxmox |
+|---------|------------------------------|---------|
+| **Networking** | ✅ | ✅ |
+| **Storage** | ✅ | ✅ |
+| **High Availability** | ✅  | ✅  |
+| **Applications** | ✅  | ✅  |
+| **VMs** | ✅  | ✅ |
+| **Containers** | ✅ | ✅   |
 
 ---
+
 ![](https://i.imgflip.com/9pnocy.jpg)
 
 ---
 
-# Networking
-
-
----
-## Routing
-
-**Hardware**: 4x Gigabit LAN, Quad Core CPU
-**Operating System**: PfSense
-
-![bg left:33%](https://teklager.se/media/filer_public_thumbnails/filer_public/6f/62/6f6257bb-9bb0-44f7-9407-3c1c7f1c96d1/2_2_apu4_pxl_20230106_112033200_2apu4_.jpg__900x900_q85_crop_subsampling-2.jpg)
-
+- Networking
+- Storage
+- Compute
 
 ---
-## Switches
+## Networking
 
-**Hardware**: VLAN compatible switches 
-**Price**: Free <3 Invativa
-
-
----
-
-# Physical Servers
-
-- `pve`,i3 4-cores 9th gen, 64GB RAM
-- `pvd`,i7 4-cores 7th gen, 32GB RAM 
-- `pvc`,i7 16-cores 14th gen, 96GB RAM
+**Router Hardware**: 4x Gigabit LAN, Quad Core CPU
+**Router Operating System**: PfSense
+**Switches**: VLAN compatible switches 
 
 
 ---
@@ -163,6 +143,22 @@ on commodity hardware
 - Mirrored zfs ssd-drives
 
 ---
+
+# Compute
+
+- `pve`,i3 4-cores 9th gen, 64GB RAM
+- `pvd`,i7 4-cores 7th gen, 32GB RAM 
+- `pvc`,i7 16-cores 14th gen, 96GB RAM
+
+---
+
+![](./img/network.svg)
+
+---
+
+![](./img/demo.svg)
+
+---
 # Demo
 
 Let's test our hyperconverged  "cloud compute" platform
@@ -170,6 +166,8 @@ Let's test our hyperconverged  "cloud compute" platform
 - Networking ✅
 - Storage ✅
 - Compute ✅
+- Backups ✅
+- High Availability ✅
 
 ---
 
@@ -188,12 +186,64 @@ Let's test our hyperconverged  "cloud compute" platform
 <video src="./video/ransomware.mkv" controls width="100%"></video>
 
 ---
-# Limitations of DIY-cloud
+> Price Comparison
 
-- Proxmox supports only up to 1000s nodes per cluster
-- Nodes need < 5ms ping time, multi-site failover not easy
-- No official tofu/terraform provider
+
+---
+# Hetzner Bare Metal
+-  `AX162-R`
+- 48 cores / 96 threads @ 2.75 GHz
+- 256 GB
+- Run proxmox, add new nodes as needed
+- Slice up the bare metal host as you desire
+- **Price**: $221 per month
+
+
+---
+# Azure
+- General Compute `D4s_v3`
+- 4 vCpu, 16 gig ram, 
+- **Price**: $140 per month
+
+
+---
+
+![](./img/ram-comparison.svg)
+
+---
+
+![](./img/cpu-comparison.svg)
+
+---
+# Limitations of Promox
+
+- Not unlimited scalability
+- Multi-site failover not easy
+- Hardware/Resource Management
+- No OCI-Container management
+ 
+--- 
+
+# Discussion
+
+- Time vs cost
+- Setup Proxmox on bare-metal in Hetzner a lot cheaper
+- Lacks "cloudy" features, some of them not needed?
+- Fixed cost
+- Self-serve compute and VDI environments for developers
 
 ---
 
 # Summary
+
+- Essential Cloud features, networking, storage and compute
+- Compared public cloud offerings with Proxmox
+- Demo of some proxmox features
+- Bare metal hosts on hetzner running proxmox provides one order of magnitude lower prices
+- Time vs Cost
+
+
+
+---
+
+> the end
